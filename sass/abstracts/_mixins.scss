@@ -12,3 +12,71 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// media query manager
+
+/*
+
+selecting the breakpoints for desktop first approach that will apply using max-width media query
+
+0-600px: phone
+
+600-900px: tablet portrait
+
+900-1200px : tablet landscape
+
+1200-1800px: is where our normal initially written styles apply, styles that are written outside the media query for desktops.
+
+1800px+ : bigger desktop
+*/
+
+// the best way but we will have to write a different mixin to each breakpoint
+
+// @mixin respond-phone {
+//   @media (max-width: 600px) {
+//     @content
+//   };
+// }
+
+// the enhenced best way  using one mixin to all breakpoints
+
+/*  $breakpoint arguement choices
+- phone <=600px
+- tab-port<=900px
+- tab-land<=1200px
+- big-desktop -- use min-width property to cover more the 1800px
+*/
+// we use relative units instead of px but it will be converted to px as if the user change the default font-size in the browser then media queries wouldn't be affected and we want them to be affected for better accessability experience for the user
+
+// use em as rem fails with media queries with some browsers
+
+// 1em = 16px(considering browser default 16px)
+// 600px/16px= 37.5em
+// 900px/16px= 56.25em
+// 1200px/16px= 75em
+// 1800px/16px= 112.5em
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    //600px
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint==tab-port {
+    //900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint==tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint==big-desktop {
+    @media (min-width: 112.25em) {
+      @content;
+    }
+  }
+}

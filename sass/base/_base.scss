@@ -8,9 +8,53 @@
 html {
   // defines what 1 rem is (with 62.5% 1rem=10px as most defauld browser setting for font-size is 16px)
   font-size: 62.5%;
+
+  // the better way to use media query
+
+  //@media (max-width:600px){
+  //   font-size: 56%;
+  // } this is the better way
+
+  // the best way to use media query
+  // @include respond-phone {
+  //   // content to pass into the mixin
+  //   font-size: 50%;
+  // }
+
+  // the enhenced best way  to use media query
+
+  // same as tab-port as same declaration in 900px screen size that will apply also on phones screens.
+
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+
+  @include respond(tab-land) {
+    //1rem=9px , (9/16)*100=56.25%
+
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    //1rem=8px , (8/16)*100=50%
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    //1rem=12px , (12/16)*100=75%
+
+    font-size: 75%;
+  }
 }
 
 body {
   padding: 3rem;
   box-sizing: border-box;
 }
+
+// Media Query NOTES:
+
+// beginners uses a separate file for media queries where one media query for one breakpoint contains all the selectors that we want to change their declarations and that will produce one huge media query for each breakpoint.
+
+// the better way is to add media query in each selector
+
+// the best way is to write a mixin to easily change the breakpoints if needed instead of going through all the media queries defined in many selectors to change the breakpoint.

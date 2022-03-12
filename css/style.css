@@ -6,6 +6,26 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/*
+
+selecting the breakpoints for desktop first approach that will apply using max-width media query
+
+0-600px: phone
+
+600-900px: tablet portrait
+
+900-1200px : tablet landscape
+
+1200-1800px: is where our normal initially written styles apply, styles that are written outside the media query for desktops.
+
+1800px+ : bigger desktop
+*/
+/*  $breakpoint arguement choices
+- phone <=600px
+- tab-port<=900px
+- tab-land<=1200px
+- big-desktop -- use min-width property to cover more the 1800px
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -43,6 +63,15 @@ Dark green: #28b485
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.25em) {
+    html {
+      font-size: 75%; } }
 
 body {
   padding: 3rem;
@@ -233,6 +262,7 @@ body {
   .feature-box__icon {
     background-image: linear-gradient(to right, #7ed56f, #28b485);
     -webkit-background-clip: text;
+    background-clip: text;
     font-size: 6rem;
     margin-bottom: 0.5rem;
     color: transparent; }

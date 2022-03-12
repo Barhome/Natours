@@ -18,10 +18,9 @@
       $color-primary-dark
     );
     -webkit-background-clip: text;
+    background-clip: text;
     font-size: 6rem;
     margin-bottom: 0.5rem;
     color: transparent;
-  }
-  &__text {
   }
 }
