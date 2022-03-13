@@ -1,6 +1,6 @@
 .story {
   width: 75%;
-  background-color: rgba($color-white, 0.7);
+  background-color: rgba($color-white, 0.6);
   padding: 6rem;
   padding-left: 9rem;
   margin: 0 auto;
@@ -8,6 +8,14 @@
   border-radius: 0.3rem;
   font-size: $default-font-size;
   transform: skewX(-12deg);
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+  @include respond(phone) {
+    transform: skewX(0deg);
+  }
   &__shape {
     width: 15rem;
     height: 15rem;
@@ -17,9 +25,11 @@
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    background-color: orange;
     position: relative;
-    overflow: hidden;
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0deg);
+    }
   }
   &__caption {
     position: absolute;
@@ -52,5 +62,8 @@
   }
   &__text {
     transform: skewX(12deg);
+    @include respond(phone) {
+      transform: skewX(0deg);
+    }
   }
 }
