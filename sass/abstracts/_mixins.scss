@@ -45,6 +45,7 @@ selecting the breakpoints for desktop first approach that will apply using max-w
 - tab-port<=900px
 - tab-land<=1200px
 - big-desktop -- use min-width property to cover more the 1800px
+
 */
 // we use relative units instead of px but it will be converted to px as if the user change the default font-size in the browser then media queries wouldn't be affected and we want them to be affected for better accessability experience for the user
 
@@ -55,6 +56,8 @@ selecting the breakpoints for desktop first approach that will apply using max-w
 // 900px/16px= 56.25em
 // 1200px/16px= 75em
 // 1800px/16px= 112.5em
+
+// ORDER: base+typography >general layout(like header footer navigation) +grid> page layout(more specific to the project) > components
 
 @mixin respond($breakpoint) {
   @if $breakpoint==phone {
