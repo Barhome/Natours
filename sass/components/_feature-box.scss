@@ -6,6 +6,9 @@
   border-radius: 0.3rem;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
   transition: all 0.3s;
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
 
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
@@ -22,5 +25,8 @@
     font-size: 6rem;
     margin-bottom: 0.5rem;
     color: transparent;
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
   }
 }
